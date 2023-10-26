@@ -10,13 +10,17 @@
 
         <a href="index.php?ctrl=san_pham&action=addnew">Thêm sản phẩm</a>
 
+        
+
         <table border="1">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Tên sản phẩm</th>
+                    <th>ID Danh mục</th>
                     <th>Mô tả</th>
                     <th>Giá</th>
+                    <th>Hình Ảnh</th>
                     <th>Số lượng</th>
                     <th>Hành động</th>
                 </tr>
@@ -26,9 +30,14 @@
                     <tr>
                         <td><?php echo $sanPham['id']; ?></td> 
                         <td><?php echo $sanPham['ten']; ?></td>
-                        
+                        <td><?php echo $sanPham['danh_muc_id']; ?></td>
                         <td><?php echo $sanPham['mo_ta']; ?></td>
                         <td><?php echo $sanPham['gia']; ?></td>
+                        <td>
+                            <img src="http://localhost:8080/QuanAo/image/<?php echo $sanPham['hinh_anh']; ?>" alt="Hình ảnh sản phẩm" width="100">
+                        </td>
+
+
                         <td><?php echo $sanPham['so_luong']; ?></td>
 
                         <td>

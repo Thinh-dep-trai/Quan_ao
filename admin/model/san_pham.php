@@ -14,17 +14,23 @@ function getByIdSP($id) {
     return $result;
 }
 
-function createSP($ten, $gia, $mo_ta, $so_luong) {
-    $sql = "INSERT INTO san_pham(ten, gia, mo_ta,so_luong) VALUES ('$ten', $gia, '$mo_ta' ,$so_luong)";
+function createSP($ten, $danh_muc_id, $gia, $mo_ta, $hinh_anh, $so_luong) {
+    $sql = "INSERT INTO san_pham(ten, danh_muc_id, gia,mo_ta, hinh_anh, so_luong) VALUES ('$ten',$danh_muc_id, $gia, '$mo_ta','$hinh_anh' ,$so_luong)";
     execute($sql);
 }
 
-function updateSP($id, $ten, $gia, $mo_ta,$so_luong) {
-    $sql = "UPDATE san_pham SET ten='$ten', gia=$gia, mo_ta='$mo_ta', so_luong=$so_luong WHERE id = $id";
+function updateSP($id, $ten, $danh_muc_id, $gia, $mo_ta, $hinh_anh, $so_luong) {
+    $sql = "UPDATE san_pham SET ten='$ten',danh_muc_id=$danh_muc_id, gia=$gia, mo_ta='$mo_ta', hinh_anh='$hinh_anh', so_luong=$so_luong WHERE id = $id";
     execute($sql);
 }
 
 function deleteSP($id) {
     $sql = "DELETE FROM san_pham WHERE id = $id";
     execute($sql);
+}
+
+function searchSP($keyword) {
+    $sql = "SELECT * FROM san_pham WHERE ten LIKE '%$keyword%'";
+    $result = query($sql);
+    return $result;
 }
