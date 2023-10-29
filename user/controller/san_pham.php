@@ -1,7 +1,7 @@
 <?php
 
 include_once 'model/san_pham.php';
-
+include_once 'model/danh_muc.php';
 
 $action = 'index';
 if (isset($_GET['action'])) {
@@ -14,7 +14,7 @@ switch ($action) {
         include 'view/san_pham/index.php';
         break;
     case 'addnew':
-        $danhMucIdADD = getIdDanhMuc();
+        $danhMucIds = getIdDanhMuc();
         include 'view/san_pham/addnew.php';
         break;
     case 'them':
@@ -33,7 +33,7 @@ switch ($action) {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $sanPham = getByIdSP($id);
-            $danhMucIdED = getIdDanhMuc();
+            $danhMucIds = getIdDanhMuc();
             include 'view/san_pham/edit.php';
         }
         break;
@@ -53,9 +53,7 @@ switch ($action) {
             $mo_ta = $_POST['mo_ta'];
             $hinh_anh = $_POST['hinh_anh'];
             $so_luong = $_POST['so_luong'];
-            
             updateSP($id, $ten, $danh_muc_id, $gia, $mo_ta, $hinh_anh, $so_luong);
-            
             header('location: index.php?ctrl=san_pham');
         }
         break;
@@ -64,7 +62,7 @@ switch ($action) {
             $keyword = $_GET['keyword'];
 
             $sanPhams = searchSP($keyword);
-
+        
             include 'view/san_pham/index.php';
         }
         break;

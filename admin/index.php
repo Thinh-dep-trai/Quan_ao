@@ -11,17 +11,11 @@
                 <li><a href="index.php">Trang chủ</a></li>
                 <li><a href="index.php?ctrl=danh_muc">Danh Mục</a></li>
                 <li><a href="index.php?ctrl=san_pham">Sản Phẩm</a></li>
+                <li><a href="index.php?ctrl=khach_hang">Khách Hàng</a></li>
+                <li><a href="index.php?ctrl=don_hang">Đơn hàng</a></li>
             </ul>
 
         </div>
-
-        <form action="index.php" method="GET">
-            <input type="hidden" name="ctrl" value="san_pham">
-            <input type="hidden" name="action" value="search">
-            <input type="text" name="keyword" placeholder="Nhập tên sản phẩm cần tìm kiếm">
-            <button type="submit">Tìm kiếm</button>
-        </form>
-
 
         <div class="home">
             <?php

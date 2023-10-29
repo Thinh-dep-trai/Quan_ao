@@ -8,16 +8,20 @@
     <body>
         <h1>Danh sách sản phẩm</h1>
 
-        <a href="index.php?ctrl=san_pham&action=addnew">Thêm sản phẩm</a>
+        <form action="index.php" method="GET">
+            <input type="hidden" name="ctrl" value="san_pham">
+            <input type="hidden" name="action" value="search">
+            <input type="text" name="keyword" placeholder="Nhập tên sản phẩm cần tìm kiếm">
+            <button type="submit">Tìm kiếm</button>
+        </form>
 
-        
+        <a href="index.php?ctrl=san_pham&action=addnew">Thêm sản phẩm</a>
 
         <table border="1">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Tên sản phẩm</th>
-                    <th>ID Danh mục</th>
                     <th>Mô tả</th>
                     <th>Giá</th>
                     <th>Hình Ảnh</th>
@@ -30,11 +34,10 @@
                     <tr>
                         <td><?php echo $sanPham['id']; ?></td> 
                         <td><?php echo $sanPham['ten']; ?></td>
-                        <td><?php echo $sanPham['danh_muc_id']; ?></td>
                         <td><?php echo $sanPham['mo_ta']; ?></td>
                         <td><?php echo $sanPham['gia']; ?></td>
                         <td>
-                            <img src="http://localhost:8080/QuanAo/image/<?php echo $sanPham['hinh_anh']; ?>" alt="Hình ảnh sản phẩm" width="100">
+                            <img src="http://localhost:8080/QuanAo/zimage/<?php echo $sanPham['hinh_anh']; ?>" alt="Hình ảnh sản phẩm" width="100">
                         </td>
 
 

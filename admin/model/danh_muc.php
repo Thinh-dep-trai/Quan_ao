@@ -1,8 +1,8 @@
 <?php
 
 // Kết nối database 
-require_once 'database.php';
 
+require_once "./../database/database.php";
 // Lấy tất cả danh mục
 function getAllDanhMuc() {
     $sql = "SELECT * FROM danh_muc";
@@ -10,11 +10,6 @@ function getAllDanhMuc() {
     return $result;
 }
 
-function getIdDanhMuc() {
-    $sql = "SELECT id FROM danh_muc";
-    $result = query($sql);
-    return $result;
-}
 
 // Lấy chi tiết danh mục theo id
 function getDanhMucById($id) {
@@ -34,7 +29,6 @@ function createDanhMuc($ten, $mo_ta) {
 // Cập nhật danh mục 
 function updateDanhMuc($id, $ten, $mo_ta) {
     $sql = "UPDATE danh_muc SET ten = '$ten', mo_ta = '$mo_ta' WHERE id = $id";
-
     execute($sql);
 }
 

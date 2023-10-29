@@ -1,16 +1,9 @@
 <?php
 
-//require_once 'database.php'; // file chứa hàm kết nối db
-require_once "./../database/database.php";
+require_once 'database.php'; // file chứa hàm kết nối db
+
 function getAllSP() {
     $sql = "SELECT * FROM san_pham";
-    $result = query($sql);
-    return $result;
-}
-
-//Lấy id danh mục để select combo
-function getIdDanhMuc() {
-    $sql = "SELECT id, ten FROM danh_muc";
     $result = query($sql);
     return $result;
 }
@@ -34,10 +27,4 @@ function updateSP($id, $ten, $danh_muc_id, $gia, $mo_ta, $hinh_anh, $so_luong) {
 function deleteSP($id) {
     $sql = "DELETE FROM san_pham WHERE id = $id";
     execute($sql);
-}
-
-function searchSP($keyword) {
-    $sql = "SELECT * FROM san_pham WHERE ten LIKE '%$keyword%'";
-    $result = query($sql);
-    return $result;
 }
