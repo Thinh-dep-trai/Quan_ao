@@ -9,7 +9,7 @@
     <h1>Thêm danh mục mới</h1>
     
     <form action="index.php?ctrl=danh_muc&action=store" method="POST">
-        <label for="ten">Tên sản phẩm:</label>
+        <label for="ten">Tên danh mục:</label>
         <input type="text" id="ten" name="ten" required>
         
         <label for="mo_ta">Mô tả:</label>

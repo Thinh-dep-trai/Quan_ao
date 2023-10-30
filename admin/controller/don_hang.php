@@ -15,19 +15,21 @@ switch ($action) {
         $khachHangName = getIdKhachHang();
         $sanPhamName = getIdSanPham();
         $donHangs = getAllDonHang();
+        $giaSP = getGiaSanPham();
         include 'view/don_hang/index.php';
         break;
 
     case 'add':
         $khachHangIdAdd = getIdKhachHang();
         $sanPhamIdAdd = getIdSanPham();
+        $giaSP = getGiaSanPham();
         // Hiển thị form thêm mới
         include 'view/don_hang/add.php';
         break;
 
     case 'store':
         // Xử lý thêm mới
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Lấy dữ liệu từ form
             $khach_hang_id = $_POST['khach_hang_id'];
@@ -48,6 +50,7 @@ switch ($action) {
             $donHangED = getDonHangById($id);
             $khachHangIdAdd = getIdKhachHang();
             $sanPhamIdAdd = getIdSanPham();
+            $giaSP = getGiaSanPham();
             include 'view/don_hang/edit.php';
         }
         break;
@@ -74,6 +77,13 @@ switch ($action) {
             deleteDonHang($id);
 
             header('location: index.php?ctrl=don_hang');
+        }
+        break;
+    case 'chi_tiet':
+        if (isset($_GET['id'])) {
+            $ten = $_GET['id']; // Lấy tên từ tham số truyền vào
+            $donHangChiTiet = getIDDH($ten);
+            include 'view/don_hang_chi_tiet/index.php';
         }
         break;
 

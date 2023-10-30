@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 25, 2023 lúc 07:15 PM
+-- Thời gian đã tạo: Th10 30, 2023 lúc 04:57 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -28,22 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `danh_muc` (
-  `id` int(11) NOT NULL,
+  `id` int(14) NOT NULL,
   `ten` varchar(255) NOT NULL,
   `mo_ta` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `danh_muc`
---
-
-INSERT INTO `danh_muc` (`id`, `ten`, `mo_ta`) VALUES
-(1, 'Quần', 'Quần jack'),
-(2, 'HEHE', 'quá đã\r\n'),
-(5, '1', '33'),
-(6, '1', '3'),
-(9, '1', '3'),
-(10, '1', '1');
 
 -- --------------------------------------------------------
 
@@ -130,22 +118,6 @@ CREATE TABLE `san_pham` (
   `so_luong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Đang đổ dữ liệu cho bảng `san_pham`
---
-
-INSERT INTO `san_pham` (`id`, `ten`, `danh_muc_id`, `mo_ta`, `hinh_anh`, `gia`, `so_luong`) VALUES
-(1, 'Quần jack', 1, 'Quần 5tr', 'quan-2.jpg', 5000, 1),
-(2, '3', 1, '1', NULL, 1, 0),
-(30, 'Áo', 1, 'Hack', '', 100000, 20),
-(51, '4', 5, '5', NULL, 3, 1),
-(52, 'áo', 1, '3', NULL, 44, 44),
-(53, 'Áo jack', 1, 'jack 5tr', NULL, 123, 332),
-(57, '1', 1, '2', 'quan-1.jpg', 3, 4),
-(58, '1', 1, '1', 'quan-1.jpg', 1, 1),
-(59, '1', 1, '3', 'quan-2.jpg', 4, 2),
-(60, 'Quần 2', 9, 'Màu xanh', 'quan-2.jpg', 1000, 200);
-
 -- --------------------------------------------------------
 
 --
@@ -226,7 +198,7 @@ ALTER TABLE `tai_khoan`
 -- AUTO_INCREMENT cho bảng `danh_muc`
 --
 ALTER TABLE `danh_muc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang`
@@ -262,7 +234,7 @@ ALTER TABLE `quyen`
 -- AUTO_INCREMENT cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tai_khoan`

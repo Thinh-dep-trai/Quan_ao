@@ -65,7 +65,16 @@ function getIdSanPham() {
 //lấy giá của sản phẩm qua đơn hàng
 
 function getGiaSanPham() {
-    $sql = "SELECT gia FROM san_pham WHERE id = $id";
-    $result = queryOne($sql);
+    $sql = "SELECT id, ten, gia FROM san_pham";
+    $result = query($sql);
     return $result;
 }
+
+//copy từ mmodel don_hang_chi_tiet
+function getIDDH($id) {
+    $sql = "SELECT * FROM don_hang_chi_tiet WHERE id LIKE ?";
+    $params = array("%$id%"); // Sử dụng `%` để tìm kiếm tên một phần
+    $result = query($sql, $params);
+    return $result;
+}
+

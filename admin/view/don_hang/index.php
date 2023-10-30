@@ -29,26 +29,14 @@
                         <td><?php echo $donHang['ten_khach_hang']; ?></td>
                         <td><?php echo $donHang['ten_san_pham']; ?></td>
                         <td><?php echo $donHang['so_luong']; ?></td>
-                        <td>
-
-                            <?php
-//                            foreach ($giaSanPham as $sp) {
-//                                if ($sp['id'] == $donHang['san_pham_id']) {
-//                                    echo $sp['gia'];
-//                                    break; // Tìm thấy giá, thoát khỏi vòng lặp
-//                                }
-//                            }
-                            echo $donHang['so_luong'];
-                            ?>
-
-
-                        </td>
+                        <td><?php echo $donHang['gia']; ?></td>
                         <td><?php echo $donHang['tong_gia']; ?></td>
                         <td><?php echo $donHang['trang_thai']; ?></td>
 
                         <td>
                             <a href="index.php?ctrl=don_hang&action=edit&id=<?php echo $donHang['id']; ?>">Sửa</a>
                             <a href="index.php?ctrl=don_hang&action=delete&id=<?php echo $donHang['id']; ?>">Xóa</a>
+                            <a href="index.php?ctrl=don_hang&action=chi_tiet&id=<?php echo $donHang['id']; ?>">Chi tiết</a>
                         </td>
                     </tr>
                 <?php } ?>
