@@ -22,9 +22,30 @@ function getDonHangById($id) {
 }
 
 // Thêm mới đơn hàng
+//function createDonHang($khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, $trang_thai) {
+//    $sql = "INSERT INTO don_hang(khach_hang_id, san_pham_id, so_luong, gia, tong_gia, trang_thai) 
+//          VALUES ($khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, '$trang_thai')";
+//
+//    execute($sql);
+//}
+// Thêm mới đơn hàng
 function createDonHang($khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, $trang_thai) {
+
+    // Thêm bản ghi đơn hàng
     $sql = "INSERT INTO don_hang(khach_hang_id, san_pham_id, so_luong, gia, tong_gia, trang_thai) 
-          VALUES ($khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, '$trang_thai')";
+            VALUES ($khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, '$trang_thai')";
+
+    // Lấy id vừa insert
+    $don_hang_id = executeReturnLastId($sql);
+
+    // Thêm bản ghi chi tiết đơn hàng
+    createDonHangChiTiet($don_hang_id, $san_pham_id, $so_luong, $gia);
+}
+
+// Hàm thêm chi tiết đơn hàng 
+function createDonHangChiTiet($don_hang_id, $san_pham_id, $so_luong, $gia) {
+    $sql = "INSERT INTO don_hang_chi_tiet(don_hang_id, san_pham_id, so_luong, gia) 
+            VALUES ($don_hang_id, $san_pham_id, $so_luong, $gia)";
 
     execute($sql);
 }
@@ -77,4 +98,3 @@ function getIDDH($id) {
     $result = query($sql, $params);
     return $result;
 }
-
