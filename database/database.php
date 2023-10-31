@@ -36,8 +36,8 @@ function executeReturnLastId($sql) {
     $connect = getConnection();
 
     // Thực thi câu lệnh SQL 
-    $stmt = $connect->prepare($sql);
-    $stmt->execute();
+    $result = $connect->prepare($sql);
+    $result->execute();
 
     // Lấy ID vừa insert
     $id = $connect->lastInsertId();

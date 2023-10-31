@@ -3,7 +3,7 @@
 include_once 'model/danh_muc.php';
 
 $action = 'index';
-if(isset($_GET['action'])){
+if (isset($_GET['action'])) {
     $action = $_GET['action'];  
 }
 
