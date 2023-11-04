@@ -1,0 +1,72 @@
+.right {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tcsp {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+hr {
+    border: 1px solid #ccc;
+}
+
+.boxcenter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    width: 30%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.gia {
+    color: #FF5722;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.mua a {
+    background: #FF5722;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+.danh-muc-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #f1f1f1;
+}
+
+.danh-muc-item {
+    display: inline-block;
+}
+
+.danh-muc-item a {
+    color: #000;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: block;
+}
+
+.danh-muc-item a:hover {
+    background-color: #555;
+    color: #fff;
+}

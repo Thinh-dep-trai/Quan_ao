@@ -14,6 +14,7 @@
                 <li><a href="index.php?ctrl=khach_hang">Khách Hàng</a></li>
                 <li><a href="index.php?ctrl=don_hang">Đơn hàng</a></li>
                 <li><a href="index.php?ctrl=don_hang_chi_tiet">Chi tiết đơn hàng demo</a></li>
+                <li><a href="index.php?ctrl=tai_khoan">Tài khoản</a></li>
             </ul>
 
         </div>

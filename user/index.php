@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         <link rel="stylesheet" href="../user/css/style.css">
         <title>Khách hàng là đồ ngu</title> <!-- Điền tên trang web của bạn vào đây -->
     </head>
     <body>

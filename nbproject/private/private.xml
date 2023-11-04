@@ -12,12 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/QuanAo/admin/model/don_hang.php</file>
-            <file>file:/C:/xampp/htdocs/QuanAo/admin/controller/don_hang.php</file>
-            <file>file:/C:/xampp/htdocs/QuanAo/admin/view/don_hang/edit.php</file>
-            <file>file:/C:/xampp/htdocs/QuanAo/admin/view/don_hang/add.php</file>
-            <file>file:/C:/xampp/htdocs/QuanAo/admin/view/don_hang/index.php</file>
-            <file>file:/C:/xampp/htdocs/QuanAo/shop_quan_ao.sql</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/model/san_pham.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/index.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/view/san_pham/index.php</file>
         </group>
     </open-files>
 </project-private>

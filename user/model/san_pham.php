@@ -20,6 +20,10 @@ function searchUserSP($keyword) {
     return $result;
 }
 
+function getSanPhamByDanhMuc($danhMucId) {
+    $sql = "SELECT * FROM san_pham WHERE danh_muc_id = $danhMucId";
+    $result = query($sql);
+    return $result;
+}
 
-// Thêm các hàm khác cần thiết cho phần khách hàng tại đây...
 ?>
