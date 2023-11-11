@@ -29,9 +29,10 @@
                     <div class="box">
                         <img src="<?php echo $base_url . $sanPham['hinh_anh']; ?>" alt="Hình ảnh sản phẩm" style="max-width: 150px;">
                         <div class="name"><?php echo $sanPham['ten']; ?></div>
-                        <div class="gia"><?php echo $sanPham['gia']; ?>đ</div>
+                        <div class="gia"><?php echo $sanPham['gia']; ?>.đ</div>
                         <div class="mua">
-                            <a href="index.php?ctrl=gio_hang&action=addtocart&product_id=<?php echo $sanPham['id']; ?>"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</a>
+                            <a href="index.php?ctrl=gio_hang&action=addtocart&product_id=
+                               <?php echo $sanPham['id']; ?>" onclick="alert('Đã thêm sản phẩm vào giỏ hàng')">Thêm vào giỏ hàng</a>
                         </div>
                     </div>
                 <?php } ?>

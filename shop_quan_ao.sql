@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2023 lúc 04:57 PM
+-- Thời gian đã tạo: Th10 10, 2023 lúc 03:47 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -28,10 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `danh_muc` (
-  `id` int(14) NOT NULL,
+  `id` int(11) NOT NULL,
   `ten` varchar(255) NOT NULL,
   `mo_ta` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `danh_muc`
+--
+
+INSERT INTO `danh_muc` (`id`, `ten`, `mo_ta`) VALUES
+(1, 'A', 'B\r\n'),
+(2, 'C', 'D');
 
 -- --------------------------------------------------------
 
@@ -42,12 +50,18 @@ CREATE TABLE `danh_muc` (
 CREATE TABLE `don_hang` (
   `id` int(11) NOT NULL,
   `khach_hang_id` int(11) DEFAULT NULL,
-  `san_pham_id` int(11) DEFAULT NULL,
-  `so_luong` int(11) DEFAULT NULL,
-  `gia` int(11) DEFAULT NULL,
   `tong_gia` int(11) DEFAULT NULL,
   `trang_thai` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `don_hang`
+--
+
+INSERT INTO `don_hang` (`id`, `khach_hang_id`, `tong_gia`, `trang_thai`) VALUES
+(1, 1, 90, 'Đang xử lý'),
+(35, 34, 30, 'Đang xử lý'),
+(36, 35, 660, 'Đang xử lý');
 
 -- --------------------------------------------------------
 
@@ -63,6 +77,16 @@ CREATE TABLE `don_hang_chi_tiet` (
   `gia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `don_hang_chi_tiet`
+--
+
+INSERT INTO `don_hang_chi_tiet` (`id`, `don_hang_id`, `san_pham_id`, `so_luong`, `gia`) VALUES
+(1, 1, 1, 3, 30),
+(24, 35, 1, 1, 30),
+(25, 36, 1, 2, 30),
+(26, 36, 2, 2, 300);
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +100,15 @@ CREATE TABLE `khach_hang` (
   `so_dien_thoai` varchar(255) DEFAULT NULL,
   `dia_chi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `khach_hang`
+--
+
+INSERT INTO `khach_hang` (`id`, `ten`, `email`, `so_dien_thoai`, `dia_chi`) VALUES
+(1, 'A', 'A@gmail.com', '3', '3'),
+(34, '1', '1', '1', '1'),
+(35, '2', '2', '2', '2');
 
 -- --------------------------------------------------------
 
@@ -118,6 +151,14 @@ CREATE TABLE `san_pham` (
   `so_luong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `san_pham`
+--
+
+INSERT INTO `san_pham` (`id`, `ten`, `danh_muc_id`, `mo_ta`, `hinh_anh`, `gia`, `so_luong`) VALUES
+(1, 'A', 1, 'A', 'messi-mu.jpg', 30, 3),
+(2, 'B', 2, 'B', 'quan-1.jpg', 300, 30);
+
 -- --------------------------------------------------------
 
 --
@@ -130,6 +171,13 @@ CREATE TABLE `tai_khoan` (
   `PASSWORD` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `tai_khoan`
+--
+
+INSERT INTO `tai_khoan` (`id`, `email`, `PASSWORD`, `role`) VALUES
+(1, '3', '3', '1');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -146,8 +194,7 @@ ALTER TABLE `danh_muc`
 --
 ALTER TABLE `don_hang`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_khach_hang_id` (`khach_hang_id`),
-  ADD KEY `fk_san_pham_id` (`san_pham_id`);
+  ADD KEY `fk_khach_hang_id` (`khach_hang_id`);
 
 --
 -- Chỉ mục cho bảng `don_hang_chi_tiet`
@@ -198,25 +245,25 @@ ALTER TABLE `tai_khoan`
 -- AUTO_INCREMENT cho bảng `danh_muc`
 --
 ALTER TABLE `danh_muc`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang_chi_tiet`
 --
 ALTER TABLE `don_hang_chi_tiet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `khach_hang`
 --
 ALTER TABLE `khach_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `ma_giam_gia`
@@ -234,13 +281,13 @@ ALTER TABLE `quyen`
 -- AUTO_INCREMENT cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `tai_khoan`
 --
 ALTER TABLE `tai_khoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -250,8 +297,7 @@ ALTER TABLE `tai_khoan`
 -- Các ràng buộc cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  ADD CONSTRAINT `fk_khach_hang_id` FOREIGN KEY (`khach_hang_id`) REFERENCES `khach_hang` (`id`),
-  ADD CONSTRAINT `fk_san_pham_id` FOREIGN KEY (`san_pham_id`) REFERENCES `san_pham` (`id`);
+  ADD CONSTRAINT `fk_khach_hang_id` FOREIGN KEY (`khach_hang_id`) REFERENCES `khach_hang` (`id`);
 
 --
 -- Các ràng buộc cho bảng `don_hang_chi_tiet`

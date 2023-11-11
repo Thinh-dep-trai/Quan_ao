@@ -48,6 +48,9 @@ hr {
     border-radius: 5px;
     display: inline-block;
 }
+.mua a:hover {
+    background: #42f557; 
+}
 .danh-muc-list {
     list-style-type: none;
     margin: 0;

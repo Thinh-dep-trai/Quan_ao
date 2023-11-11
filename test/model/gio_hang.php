@@ -49,15 +49,6 @@ function addToOrder($khach_hang_id, $trang_thai) {
 }
 
 // Hàm thêm đơn hàng
-//function createDonHang($khach_hang_id, $tong_gia, $trang_thai) {
-//    $sql = "INSERT INTO don_hang (khach_hang_id, tong_gia, trang_thai) 
-//            VALUES ($khach_hang_id, $tong_gia, '$trang_thai')";
-//    //execute($sql);
-//
-//    return executeReturnLastId($sql, [$khach_hang_id, $tong_gia, $trang_thai]);
-//}
-
- 
 function createDonHang($khach_hang_id, $tong_gia, $trang_thai) {
     $sql = "INSERT INTO don_hang (khach_hang_id, tong_gia, trang_thai) 
             VALUES ($khach_hang_id, $tong_gia, '$trang_thai')";
@@ -71,6 +62,7 @@ function addToDonHangChiTiet($don_hang_id, $san_pham_id, $so_luong, $gia) {
             VALUES ($don_hang_id, $san_pham_id, $so_luong, $gia)";
     execute($sql);
 }
+
 
 function calculateTotalPrice() {
     $totalPrice = 0;

@@ -33,13 +33,10 @@ switch ($action) {
 
             // Lấy dữ liệu từ form
             $khach_hang_id = $_POST['khach_hang_id'];
-            $san_pham_id = $_POST['san_pham_id'];
-            $so_luong = $_POST['so_luong'];
-            $gia = $_POST['gia'];
             $tong_gia = $_POST['tong_gia'];
             $trang_thai = $_POST['trang_thai'];
-            createDonHang($khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, $trang_thai);
-
+            createDonHang($khach_hang_id, $tong_gia, $trang_thai);
+            
             header('Location: index.php?ctrl=don_hang');
         }
         break;
@@ -59,13 +56,10 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
             $khach_hang_id = $_POST['khach_hang_id'];
-            $san_pham_id = $_POST['san_pham_id'];
-            $so_luong = $_POST['so_luong'];
-            $gia = $_POST['gia'];
             $tong_gia = $_POST['tong_gia'];
             $trang_thai = $_POST['trang_thai'];
 
-            updateDonHang($id, $khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, $trang_thai);
+            updateDonHang($id, $khach_hang_id, $tong_gia, $trang_thai);
 
             header('location: index.php?ctrl=don_hang');
         }

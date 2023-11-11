@@ -45,4 +45,9 @@ function executeReturnLastId($sql) {
     return $id;
 }
 
+function getLastInsertId() {
+    $connect = getConnection();
+    return $connect->lastInsertId();
+}
+
 ?>

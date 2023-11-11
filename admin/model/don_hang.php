@@ -5,10 +5,10 @@ require_once './../database/database.php';
 
 // Lấy tất cả đơn hàng
 function getAllDonHang() {
-    $sql = "SELECT don_hang.*, khach_hang.ten AS ten_khach_hang, san_pham.ten AS ten_san_pham
+    $sql = "SELECT don_hang.*, khach_hang.ten AS ten_khach_hang
             FROM don_hang
-            INNER JOIN khach_hang ON don_hang.khach_hang_id = khach_hang.id
-            INNER JOIN san_pham ON don_hang.san_pham_id = san_pham.id";
+            INNER JOIN khach_hang ON don_hang.khach_hang_id = khach_hang.id";
+            
 
     $result = query($sql);
     return $result;
@@ -28,34 +28,45 @@ function getDonHangById($id) {
 //
 //    execute($sql);
 //}
-// Thêm mới đơn hàng
-function createDonHang($khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, $trang_thai) {
+ //Thêm mới đơn hàng
+function createDonHang($khach_hang_id, $tong_gia, $trang_thai) {
 
     // Thêm bản ghi đơn hàng
-    $sql = "INSERT INTO don_hang(khach_hang_id, san_pham_id, so_luong, gia, tong_gia, trang_thai) 
-            VALUES ($khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, '$trang_thai')";
+    $sql = "INSERT INTO don_hang(khach_hang_id, tong_gia, trang_thai) 
+            VALUES ($khach_hang_id, $tong_gia, '$trang_thai')";
 
     // Lấy id vừa insert
     $don_hang_id = executeReturnLastId($sql);
 
     // Thêm bản ghi chi tiết đơn hàng
-    createDonHangChiTiet($don_hang_id, $san_pham_id, $so_luong, $gia);
+    createDonHangChiTiet($don_hang_id);
 }
 
 // Hàm thêm chi tiết đơn hàng 
-function createDonHangChiTiet($don_hang_id, $san_pham_id, $so_luong, $gia) {
-    $sql = "INSERT INTO don_hang_chi_tiet(don_hang_id, san_pham_id, so_luong, gia) 
-            VALUES ($don_hang_id, $san_pham_id, $so_luong, $gia)";
+//function createDonHangChiTiet($don_hang_id, $san_pham_id, $so_luong, $gia) {
+//    $sql = "INSERT INTO don_hang_chi_tiet(don_hang_id, san_pham_id, so_luong, gia) 
+//            VALUES ($don_hang_id, $san_pham_id, $so_luong, $gia)";
+//
+//    execute($sql);
+//}
 
-    execute($sql);
-}
+
+//function createDonHangChiTiet($don_hang_id, $san_pham_id = null, $so_luong = null, $gia = null) {
+//    // Kiểm tra xem các giá trị đã được đặt hay chưa
+//    if ($san_pham_id !== null && $so_luong !== null && $gia !== null) {
+//        $sql = "INSERT INTO don_hang_chi_tiet(don_hang_id, san_pham_id, so_luong, gia) 
+//                VALUES ($don_hang_id, $san_pham_id, $so_luong, $gia)";
+//    } else {
+//        $sql = "INSERT INTO don_hang_chi_tiet(don_hang_id) 
+//                VALUES ($don_hang_id)";
+//    }
+//
+//    execute($sql);
+//}
 
 // Cập nhật đơn hàng
-function updateDonHang($id, $khach_hang_id, $san_pham_id, $so_luong, $gia, $tong_gia, $trang_thai) {
+function updateDonHang($id, $khach_hang_id, $tong_gia, $trang_thai) {
     $sql = "UPDATE don_hang SET khach_hang_id = $khach_hang_id, "
-            . "san_pham_id = $san_pham_id, "
-            . "so_luong = $so_luong, "
-            . "gia = $gia, "
             . "tong_gia = $tong_gia,"
             . "trang_thai = '$trang_thai' "
             . "WHERE id = $id";
