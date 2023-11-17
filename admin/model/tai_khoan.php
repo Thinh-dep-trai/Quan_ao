@@ -18,16 +18,16 @@ function getTaiKhoanById($id) {
 }
 
 // Thêm mới tài khoản
-function createTaiKhoan($email, $password, $role) {
-    $sql = "INSERT INTO tai_khoan(email, PASSWORD, role) 
-          VALUES ('$email', '$password', '$role')";
+function createTaiKhoan($ten_dang_nhap, $password, $role) {
+    $sql = "INSERT INTO tai_khoan(ten_dang_nhap, PASSWORD, role) 
+          VALUES ('$ten_dang_nhap', '$password', '$role')";
 
     execute($sql);
 }
 
 // Cập nhật tài khoản
-function updateTaiKhoan($id, $email, $password, $role) {
-    $sql = "UPDATE tai_khoan SET email = '$email', PASSWORD = '$password', role = '$role' WHERE id = $id";
+function updateTaiKhoan($id, $ten_dang_nhap, $password, $role) {
+    $sql = "UPDATE tai_khoan SET ten_dang_nhap = '$ten_dang_nhap', PASSWORD = '$password', role = '$role' WHERE id = $id";
     execute($sql);
 }
 

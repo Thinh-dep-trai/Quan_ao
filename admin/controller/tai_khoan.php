@@ -17,20 +17,20 @@ switch ($action) {
         break;
     case 'create':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $ten_dang_nhap = $_POST['ten_dang_nhap'];
+            $password = $_POST['PASSWORD'];
             $role = $_POST['role'];
-            createTaiKhoan($email, $password, $role);
+            createTaiKhoan($ten_dang_nhap, $password, $role);
             header('Location: index.php?ctrl=tai_khoan');
         }
         break;
     case 'edit':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $ten_dang_nhap = $_POST['ten_dang_nhap'];
+            $password = $_POST['PASSWORD'];
             $role = $_POST['role'];
-            updateTaiKhoan($id, $email, $password, $role);
+            updateTaiKhoan($id, $ten_dang_nhap, $password, $role);
             header('Location: index.php?ctrl=tai_khoan');
         } else {
             $id = $_GET['id'];

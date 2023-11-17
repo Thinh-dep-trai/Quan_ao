@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+
+// Kiểm tra Session username
+if (!empty($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    echo "Xin chào $username";
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">

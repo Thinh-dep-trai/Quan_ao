@@ -9,12 +9,12 @@
         <h1>Thêm tài khoản</h1>
 
         <form action="index.php?ctrl=tai_khoan&action=create" method="POST">
-            <label for="email">Email:</label>
-            <input type="text" name="email" id="email" required>
+            <label for="ten_dang_nhap">Tên đăng nhập:</label>
+            <input type="text" name="ten_dang_nhap" id="ten_dang_nhap" required>
             <br>
 
             <label for="password">Password:</label>
-            <input type="text" name="password" id="password" required>
+            <input type="text" name="PASSWORD" id="password" required>
             <br>
 
             <label for="role">Role:</label>

@@ -14,7 +14,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Email</th>
+                <th>Tên đăng nhập</th>
                 <th>Password</th>
                 <th>Role</th>
                 <th>Thao tác</th>
@@ -25,7 +25,7 @@
             <?php foreach ($taiKhoans as $taiKhoan) { ?>
                 <tr>
                     <td><?php echo $taiKhoan['id']; ?></td>
-                    <td><?php echo $taiKhoan['email']; ?></td>
+                    <td><?php echo $taiKhoan['ten_dang_nhap']; ?></td>
                     <td><?php echo $taiKhoan['PASSWORD']; ?></td>
                     <td><?php echo $taiKhoan['role']; ?></td>
                     <td>
