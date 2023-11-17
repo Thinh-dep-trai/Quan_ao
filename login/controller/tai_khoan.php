@@ -20,15 +20,13 @@ switch ($action) {
 
             $result = ktDangNhap($tenDangNhap, $matKhau);
 
-            if ($result) {
+            if ($result && isset($result['role'])) {
                 $_SESSION['username'] = $tenDangNhap;
-                header("Location: http://localhost:8080/QuanAo/admin/index.php?ctrl=don_hang");
+                $_SESSION['role'] = $result['role'];
+                header("Location:/QuanAo/user/index.php");
             } else {
-                echo "Tên đăng nhập hoặc mật khẩu không đúng!". "<br>";
-
-                echo "Tên đăng nhập: " . $tenDangNhap . "<br>";
-                echo "Mật khẩu: " . $matKhau . "<br>";
-               // echo "Mật khẩu sau khi băm: " . md5($matKhau) . "<br>";
+                header("Location:/QuanAo/user/index.php?error=1");
+                echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng!');</script>";
             }
         }
         break;

@@ -57,7 +57,7 @@ function addToOrder($khach_hang_id, $trang_thai) {
 //    return executeReturnLastId($sql, [$khach_hang_id, $tong_gia, $trang_thai]);
 //}
 
- 
+
 function createDonHang($khach_hang_id, $tong_gia, $trang_thai) {
     $sql = "INSERT INTO don_hang (khach_hang_id, tong_gia, trang_thai) 
             VALUES ($khach_hang_id, $tong_gia, '$trang_thai')";

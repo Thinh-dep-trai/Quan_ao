@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 
-<?php
-session_start();
-
-// Kiểm tra Session username
-if (!empty($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-    echo "Xin chào $username";
-}
-?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -26,7 +17,17 @@ if (!empty($_SESSION['username'])) {
                 <li><a href="index.php?ctrl=don_hang_chi_tiet">Chi tiết đơn hàng demo</a></li>
                 <li><a href="index.php?ctrl=tai_khoan">Tài khoản</a></li>
                 <li><a href="../user/index.php">USER</a></li>
-                
+                <?php
+                session_start();
+
+// Kiểm tra Session username
+                if (!empty($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo "Xin chào $username";
+                    echo '<li><a href="/QuanAo/login/controller/dang_xuat.php">Đăng xuất</a></li>';
+                    
+                }
+                ?>
             </ul>
 
         </div>

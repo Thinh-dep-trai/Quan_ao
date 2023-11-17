@@ -73,5 +73,24 @@ switch ($action) {
         }
         header("Location: index.php?ctrl=gio_hang"); // Chuyển hướng đến trang giỏ hàng
         break;
+
+    case 'update_cart':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['cart'])) {
+            
+            $cartData = json_decode(file_get_contents("php://input"), true);
+
+            foreach ($cartData as $itemData) {
+                $itemId = $itemData['id'];
+                $quantity = $itemData['quantity'];
+
+                foreach ($_SESSION['cart'] as &$item) {
+                    if ($item['id'] == $itemId) {
+                        $item['quantity'] = $quantity;
+                        break;
+                    }
+                }
+            }
+        }
+        break;
 }
 ?>

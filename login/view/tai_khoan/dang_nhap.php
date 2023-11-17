@@ -19,6 +19,7 @@
         <button type="submit">Đăng nhập</button><br><br>
     </form>
     <button type="submit">Đăng ký</button>
+    <button onclick="window.location.href='/QuanAo/user/index.php'">Hủy</button>
 
 </body>
 </html>

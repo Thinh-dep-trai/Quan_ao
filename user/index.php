@@ -19,13 +19,19 @@
                 <?php
                 session_start();
                 if (isset($_SESSION['username'])) {
-                    // Nếu đã đăng nhập, hiển thị liên kết đăng xuất và tên người dùng
-                    echo '<li><a href="../admin/index.php">Admin</a></li>';
-                    echo '<li><a href="index.php?ctrl=dang_xuat">Đăng xuất</a></li>';
-                    echo '<li>Xin chào ' . $_SESSION['username'] . '</li>';
+                    // Nếu đã đăng nhập, kiểm tra role để hiển thị liên kết Admin hoặc Đăng xuất
+                    if ($_SESSION['role'] == '1') {
+                        echo '<li><a href="../admin/index.php">Admin</a></li>';
+                    }
+                    echo 'Xin chào ' . $_SESSION['username'];
+                    echo '<li><a href="/QuanAo/login/controller/dang_xuat.php">Đăng xuất</a></li>';
                 } else {
-                    // Nếu chưa đăng nhập, hiển thị liên kết đăng nhập
+                    // Nếu chưa đăng nhập, hiển thị liên kết Đăng nhập
                     echo '<li><a href="/QuanAo/login/index.php?ctrl=tai_khoan">Đăng nhập</a></li>';
+                }
+
+                if (isset($_GET['error']) == 1) {
+                    echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng!');</script>";
                 }
                 ?>
 

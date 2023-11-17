@@ -37,7 +37,7 @@
                         <td><?php echo $sanPham['mo_ta']; ?></td>
                         <td><?php echo $sanPham['gia']; ?></td>
                         <td>
-                            <img src="http://localhost:8080/QuanAo/zimage/<?php echo $sanPham['hinh_anh']; ?>" alt="Hình ảnh sản phẩm" width="100">
+                            <img src="/QuanAo/zimage/<?php echo $sanPham['hinh_anh']; ?>" alt="Hình ảnh sản phẩm" width="100">
                         </td>
 
 
