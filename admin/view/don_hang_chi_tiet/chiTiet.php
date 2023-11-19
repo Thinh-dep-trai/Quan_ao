@@ -8,7 +8,7 @@
     <body>
         <h1>Chi tiết đơn hàng</h1>
 
-        <a href="index.php?ctrl=don_hang_chi_tiet&action=add">Thêm đơn hàng</a>
+        <!--<a href="index.php?ctrl=don_hang_chi_tiet&action=add">Thêm đơn hàng</a>-->
 
         <table border="1">
             <thead>
@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($donHangCTs as $donHangCT) { ?>
+                <?php foreach ($donHangChiTiet as $donHangCT) { ?>
                     <tr>
                         <td><?php echo $donHangCT['id']; ?></td> 
                         <td><?php echo $donHangCT['don_hang_id']; ?></td>

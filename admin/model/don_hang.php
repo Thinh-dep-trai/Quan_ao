@@ -8,7 +8,6 @@ function getAllDonHang() {
     $sql = "SELECT don_hang.*, khach_hang.ten AS ten_khach_hang
             FROM don_hang
             INNER JOIN khach_hang ON don_hang.khach_hang_id = khach_hang.id";
-            
 
     $result = query($sql);
     return $result;
@@ -28,7 +27,7 @@ function getDonHangById($id) {
 //
 //    execute($sql);
 //}
- //Thêm mới đơn hàng
+//Thêm mới đơn hàng
 function createDonHang($khach_hang_id, $tong_gia, $trang_thai) {
 
     // Thêm bản ghi đơn hàng
@@ -49,8 +48,6 @@ function createDonHang($khach_hang_id, $tong_gia, $trang_thai) {
 //
 //    execute($sql);
 //}
-
-
 //function createDonHangChiTiet($don_hang_id, $san_pham_id = null, $so_luong = null, $gia = null) {
 //    // Kiểm tra xem các giá trị đã được đặt hay chưa
 //    if ($san_pham_id !== null && $so_luong !== null && $gia !== null) {
@@ -63,7 +60,6 @@ function createDonHang($khach_hang_id, $tong_gia, $trang_thai) {
 //
 //    execute($sql);
 //}
-
 // Cập nhật đơn hàng
 function updateDonHang($id, $khach_hang_id, $tong_gia, $trang_thai) {
     $sql = "UPDATE don_hang SET khach_hang_id = $khach_hang_id, "
@@ -102,10 +98,17 @@ function getGiaSanPham() {
     return $result;
 }
 
-//copy từ mmodel don_hang_chi_tiet
-function getIDDH($id) {
-    $sql = "SELECT * FROM don_hang_chi_tiet WHERE id LIKE ?";
-    $params = array("%$id%"); // Sử dụng `%` để tìm kiếm tên một phần
-    $result = query($sql, $params);
-    return $result;
+function getIdDonHangofCT($id) {
+    $sql = "SELECT * FROM don_hang WHERE id = $id";
+    $row = queryOne($sql);
+    return $row;
 }
+
+//copy từ mmodel don_hang_chi_tiet
+function getIDDH($don_hang_id) {
+    $sql = "SELECT * FROM don_hang_chi_tiet WHERE don_hang_id = $don_hang_id";
+    $rows = queryAll($sql);
+    return $rows;
+}
+
+

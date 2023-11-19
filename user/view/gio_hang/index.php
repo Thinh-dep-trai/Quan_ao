@@ -82,7 +82,13 @@
                         </tr>
                     <?php } ?>
                 </table>
-              
+
+                <?php
+                $_SESSION['id'] = $khachHang['id'];
+                ?>
+
+                <p>ID khách hàng: <?php echo $_SESSION['id']; ?></p>
+
                 <?php if (isset($_SESSION['id'])) { ?>
                     <!-- Nếu đã đăng nhập -->
                     <h2>Thông tin khách hàng</h2>

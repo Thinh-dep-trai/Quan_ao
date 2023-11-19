@@ -36,7 +36,7 @@ switch ($action) {
             $tong_gia = $_POST['tong_gia'];
             $trang_thai = $_POST['trang_thai'];
             createDonHang($khach_hang_id, $tong_gia, $trang_thai);
-            
+
             header('Location: index.php?ctrl=don_hang');
         }
         break;
@@ -74,11 +74,12 @@ switch ($action) {
         }
         break;
     case 'chi_tiet':
-        if (isset($_GET['id'])) {
-            $ten = $_GET['id']; // Lấy tên từ tham số truyền vào
-            $donHangChiTiet = getIDDH($ten);
-            include 'view/don_hang_chi_tiet/index.php';
-        }
+        $id = $_GET['id'];
+        $donHang = getIdDonHangofCT($id);
+        $don_hang_id = $donHang['id'];
+        $donHangChiTiet = getIDDH($don_hang_id);
+        include 'view/don_hang_chi_tiet/chiTiet.php';
+
         break;
 
     default:
