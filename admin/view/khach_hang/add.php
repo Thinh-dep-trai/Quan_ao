@@ -20,6 +20,10 @@
         
         <label for="dia_chi">Địa chỉ:</label>
         <input id="dia_chi" name="dia_chi" required>
+        
+        <label for="tai_khoan_id">ID tài khoản:</label>
+        <input id="tai_khoan_id" name="tai_khoan_id" required>
+        
       
         <button type="submit">Lưu</button>
     </form>

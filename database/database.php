@@ -26,6 +26,14 @@ function queryOne($sql) {
     return $row;
 }
 
+// chỉ sử dụng cho Thông tin đơn hàng của user :v
+function queryAll($sql) {
+    $connect = getConnection();
+    $result = $connect->query($sql);
+    $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
 function execute($sql) {
     $connect = getConnection();
     $result = $connect->exec($sql);
@@ -49,5 +57,7 @@ function getLastInsertId() {
     $connect = getConnection();
     return $connect->lastInsertId();
 }
+
+
 
 ?>

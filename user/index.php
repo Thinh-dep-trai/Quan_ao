@@ -20,10 +20,12 @@
                 session_start();
                 if (isset($_SESSION['username'])) {
                     // Nếu đã đăng nhập, kiểm tra role để hiển thị liên kết Admin hoặc Đăng xuất
-                    if ($_SESSION['role'] == '1') {
+                    if (isset($_SESSION['role']) && $_SESSION['role'] == '1') {
                         echo '<li><a href="../admin/index.php">Admin</a></li>';
                     }
                     echo 'Xin chào ' . $_SESSION['username'];
+                    echo '<li><a href="/QuanAo/user/index.php?ctrl=gio_hang&action=thongtinkhachhang">Thông tin khách hàng</a></li>';
+
                     echo '<li><a href="/QuanAo/login/controller/dang_xuat.php">Đăng xuất</a></li>';
                 } else {
                     // Nếu chưa đăng nhập, hiển thị liên kết Đăng nhập

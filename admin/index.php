@@ -25,7 +25,6 @@
                     $username = $_SESSION['username'];
                     echo "Xin chào $username";
                     echo '<li><a href="/QuanAo/login/controller/dang_xuat.php">Đăng xuất</a></li>';
-                    
                 }
                 ?>
             </ul>

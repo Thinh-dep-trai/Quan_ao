@@ -12,11 +12,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/QuanAo/admin/view/san_pham/index.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/view/khach_hang/thong_tin_khach_hang.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/view/don_hang/Thong_tin_don_hang.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/controller/gio_hang.php</file>
             <file>file:/C:/xampp/htdocs/QuanAo/admin/view/tai_khoan/index.php</file>
             <file>file:/C:/xampp/htdocs/QuanAo/user/controller/san_pham.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/view/khach_hang/edit.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/user/model/gio_hang.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/admin/model/khach_hang.php</file>
             <file>file:/C:/xampp/htdocs/QuanAo/admin/index.php</file>
             <file>file:/C:/xampp/htdocs/QuanAo/user/index.php</file>
+            <file>file:/C:/xampp/htdocs/QuanAo/admin/view/don_hang/index.php</file>
             <file>file:/C:/xampp/htdocs/QuanAo/user/view/san_pham/index.php</file>
         </group>
     </open-files>

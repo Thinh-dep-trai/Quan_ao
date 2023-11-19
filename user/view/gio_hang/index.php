@@ -82,24 +82,41 @@
                         </tr>
                     <?php } ?>
                 </table>
+              
+                <?php if (isset($_SESSION['id'])) { ?>
+                    <!-- Nếu đã đăng nhập -->
+                    <h2>Thông tin khách hàng</h2>
+                    <p>Tên: <?php echo $khachHang['ten']; ?></p>
+                    <p>Email: <?php echo $khachHang['email']; ?></p>
+                    <p>Số điện thoại: <?php echo $khachHang['so_dien_thoai']; ?></p>
+                    <p>Địa chỉ: <?php echo $khachHang['dia_chi']; ?></p>
+                    <form id="customer-form" action="index.php?ctrl=gio_hang&action=checkouts" method="post" onsubmit="updateCartOnCheckout();">
+                        <!-- Các trường thông tin khác cần hiển thị -->
+                        <button type="submit">Đặt hàng</button>
+                    </form>
+                <?php } else { ?>
+                    <!-- Nếu chưa đăng nhập -->
+                    <h2>Thông tin khách hàng</h2>
+                    <form id="customer-form" action="index.php?ctrl=gio_hang&action=checkout" method="post">
+                        <label for="ten">Tên:</label>
+                        <input type="text" id="ten" name="ten" required><br>
 
-                <!-- Mẫu thông tin khách hàng -->
-                <h2>Thông tin khách hàng</h2>
-                <form id="customer-form" action="index.php?ctrl=gio_hang&action=checkout" method="post">
-                    <label for="name">Tên:</label>
-                    <input type="text" id="name" name="ten" required><br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br>
 
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="email" required><br>
+                        <label for="so_dien_thoai">Số điện thoại:</label>
+                        <input type="tel" id="so_dien_thoai" name="so_dien_thoai"><br>
 
-                    <label for="phone">Số điện thoại:</label>
-                    <input type="tel" id="phone" name="so_dien_thoai"><br>
+                        <label for="dia_chi">Địa chỉ:</label>
+                        <input type="text" id="dia_chi" name="dia_chi"><br>
 
-                    <label for="address">Địa chỉ:</label>
-                    <input type="text" id="address" name="dia_chi"><br>
+                        <!-- Các trường thông tin khác cần nhập -->
 
-                    <button type="submit" onclick="updateCartOnCheckout();">Đặt hàng</button>
-                </form>
+                        <button type="submit">Đặt hàng</button>
+                    </form>
+                <?php } ?>
+                <!-- ... -->
+
                 <!-- End of mẫu thông tin khách hàng -->
 
             <?php } else { ?>

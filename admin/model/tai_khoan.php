@@ -19,7 +19,7 @@ function getTaiKhoanById($id) {
 
 // Thêm mới tài khoản
 function createTaiKhoan($ten_dang_nhap, $password, $role) {
-    $sql = "INSERT INTO tai_khoan(ten_dang_nhap, PASSWORD, role) 
+    $sql = "INSERT INTO tai_khoan(ten_dang_nhap	, PASSWORD, role) 
           VALUES ('$ten_dang_nhap', '$password', '$role')";
 
     execute($sql);
@@ -27,12 +27,19 @@ function createTaiKhoan($ten_dang_nhap, $password, $role) {
 
 // Cập nhật tài khoản
 function updateTaiKhoan($id, $ten_dang_nhap, $password, $role) {
-    $sql = "UPDATE tai_khoan SET ten_dang_nhap = '$ten_dang_nhap', PASSWORD = '$password', role = '$role' WHERE id = $id";
+    $sql = "UPDATE tai_khoan SET ten_dang_nhap	 = '$ten_dang_nhap', PASSWORD = '$password', role = '$role' WHERE id = $id";
     execute($sql);
 }
 
 // Xóa tài khoản
 function deleteTaiKhoan($id) {
-    $sql = "DELETE FROM tai_khoan WHERE id = $id";
-    execute($sql);
+
+  $sql = "DELETE tai_khoan, khach_hang  
+          FROM tai_khoan
+          INNER JOIN khach_hang 
+            ON tai_khoan.id = khach_hang.tai_khoan_id
+          WHERE tai_khoan.id = $id";
+
+  execute($sql);
+
 }

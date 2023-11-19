@@ -21,13 +21,15 @@ switch ($action) {
             $email = $_POST['email'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
             $dia_chi = $_POST['dia_chi'];
-            createKhachHang($ten, $email, $so_dien_thoai, $dia_chi);
+            $tai_khoan_id = $_POST['tai_khoan_id'];
+            createKhachHang($ten, $email, $so_dien_thoai, $dia_chi, $tai_khoan_id);
             header('location: index.php?ctrl=khach_hang');
         }
         break;
     case 'edit':
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
+            $tentk=getTenTK();
             $khachHangED = getKhachHangById($id);
             include 'view/khach_hang/edit.php';
         }
@@ -46,8 +48,9 @@ switch ($action) {
             $email = $_POST['email'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
             $dia_chi = $_POST['dia_chi'];
+            $tai_khoan_id=$_POST['tai_khoan_id'];
 
-            updateKhachHang($id, $ten, $email, $so_dien_thoai, $dia_chi);
+            updateKhachHang($id, $ten, $email, $so_dien_thoai, $dia_chi,$tai_khoan_id);
 
             header('location: index.php?ctrl=khach_hang');
         }

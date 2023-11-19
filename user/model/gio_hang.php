@@ -112,4 +112,43 @@ function createKhachHang($ten, $email, $so_dien_thoai, $dia_chi) {
     return $row ? $row['id'] : null;
 }
 
+// Truy vấn thông tin khách hàng dựa trên "tai_khoan_id" trong phiên đăng nhập
+function layThongTinKhachHang() {
+    // Lấy giá trị "tai_khoan_id" từ phiên đăng nhập
+    $taiKhoanId = $_SESSION['tai_khoan_id'];
+
+    $sql = "SELECT * FROM khach_hang WHERE tai_khoan_id = $taiKhoanId";
+    $row = queryOne($sql);
+
+    return $row;
+}
+
+function getKhachHangMuonSua() {
+
+    $id = $_SESSION['id'];
+    $sql = "SELECT * FROM khach_hang WHERE id = $id";
+    $row = queryOne($sql);
+    return $row;
+}
+
+function suaThongTinKhachHang($id, $ten, $email, $so_dien_thoai, $dia_chi, $tai_khoan_id) {
+
+    $sql = "UPDATE khach_hang 
+            SET id = '$id', 
+            ten = '$ten',
+                email = '$email',
+                so_dien_thoai = '$so_dien_thoai', 
+                dia_chi = '$dia_chi',
+                tai_khoan_id = '$tai_khoan_id'
+            WHERE id = $id";
+
+    execute($sql);
+}
+
+function donHangCuaKhachHang($khachHangId) {
+    $sql = "SELECT * FROM don_hang WHERE khach_hang_id = $khachHangId";
+    $rows = queryAll($sql);
+    return $rows;
+}
+
 ?>
