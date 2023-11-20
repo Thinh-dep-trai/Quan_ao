@@ -184,5 +184,14 @@ switch ($action) {
             echo 'Không có đơn hàng nào.';
         }
         break;
+
+    case 'chi_tiet':
+        $id = $_GET['id'];
+        $donHang = getIdDonHangofCT($id);
+        $don_hang_id = $donHang['id'];
+        $donHangChiTiet = getIDDH($don_hang_id);
+        include 'view/don_hang/don_hang_chi_tiet.php';
+
+        break;
 }
 ?>

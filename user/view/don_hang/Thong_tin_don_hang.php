@@ -30,8 +30,7 @@
                         <td><?php echo $dh['trang_thai']; ?></td>
 
                         <td>
-                            <a href="index.php?ctrl=don_hang&action=edit&id=<?php echo $dh['id']; ?>">Sửa</a>
-                            <a href="index.php?ctrl=don_hang&action=chi_tiet&id=<?php echo $dh['id']; ?>">Chi tiết</a>
+                            <a href="index.php?ctrl=gio_hang&action=chi_tiet&id=<?php echo $dh['id']; ?>">Chi tiết</a>
                         </td>
                     </tr>
                 <?php } ?>

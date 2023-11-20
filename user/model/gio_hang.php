@@ -151,4 +151,22 @@ function donHangCuaKhachHang($khachHangId) {
     return $rows;
 }
 
+function getIdDonHangofCT($id) {
+    $sql = "SELECT * FROM don_hang WHERE id = $id";
+    $row = queryOne($sql);
+    return $row;
+}
+
+//copy từ mmodel don_hang_chi_tiet
+function getIDDH($don_hang_id) {
+    $sql = "SELECT d.*, s.ten AS ten_san_pham, s.gia AS gia_san_pham
+            FROM don_hang_chi_tiet d
+            JOIN san_pham s ON d.san_pham_id = s.id
+            WHERE don_hang_id = $don_hang_id";
+    $result = queryAll($sql);
+    return $result;
+}
+
+
+
 ?>
